@@ -1,13 +1,27 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Divider, Typography } from "@mui/material";
 import TypographyLogo from "../assets/logo svgs/text.svg";
+import ThreeDTypo from "../components/typography/3D-Typography/3d-typo";
 
 function Site4() {
+  const downloadTextFile = (fileName: string) => {
+    fetch(`src/components/typography/3D-Typography/${fileName}`)
+      .then((response) => response.text())
+      .then((text) => {
+        const blob = new Blob([text], { type: "text/plain" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = fileName;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      });
+  };
   return (
     <Container>
-      <img src={TypographyLogo} alt="logo" style={{ width: "25rem" }} />
+      <img className="site-logo" src={TypographyLogo} alt="logo" />
       <Box sx={{ my: 2 }}>
         <Typography
-          variant="h2"
+          variant="h3"
           component="h1"
           sx={{ fontFamily: "Gilroy extra bold" }}
         >
@@ -17,19 +31,20 @@ function Site4() {
           Some Typography designs i made recently.
         </Typography>
       </Box>
-      <Box sx={{ my: 2, display: "flex", justifyContent: "center" }}>
+      <Box
+        className="site-box"
+        sx={{ my: 2, display: "flex", justifyContent: "center" }}
+      >
         <Box
-          sx={{
-            m: 2,
-            p: 2,
-            color: "black",
-            textDecoration: "none",
-            borderRadius: "25%",
-            backgroundColor: "#E0DDCF",
-            boxShadow:
-              "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
-          }}
-        ></Box>
+          onClick={() => downloadTextFile("3d-typo.txt")}
+          className="site-content-box"
+        >
+          <ThreeDTypo />
+          <Divider sx={{ width: "100%", marginTop: "1rem" }} />
+          <Typography variant="h5" sx={{ fontFamily: "Gilroy light" }}>
+            3D Typography
+          </Typography>
+        </Box>
       </Box>
     </Container>
   );
