@@ -1,4 +1,4 @@
-import { Container, Box, Typography } from "@mui/material";
+import { Container, Box, Typography, Divider } from "@mui/material";
 import NavbarLogo from "../assets/logo svgs/navbars.svg";
 import ArrowAppBar from "../components/navbars/arrow-navbar";
 import ResponsiveAppBar from "../components/navbars/responsive-navbar";
@@ -53,6 +53,7 @@ function Site2() {
           }}
         >
           <ArrowAppBar />
+          <Divider sx={{ width: "100%", marginTop: "1rem" }} />
           <Typography variant="h5" sx={{ fontFamily: "Gilroy light" }}>
             Simple and Clean Arrow Navigation
           </Typography>
@@ -76,6 +77,7 @@ function Site2() {
           }}
         >
           <ResponsiveAppBar />
+          <Divider sx={{ width: "100%", marginTop: "1rem" }} />
           <Typography variant="h5" sx={{ fontFamily: "Gilroy light" }}>
             Clean Navigation Bar / Responsive
           </Typography>
