@@ -20,10 +20,10 @@ function Site2() {
 
   return (
     <Container>
-      <img src={NavbarLogo} alt="logo" style={{ width: "25rem" }} />
+      <img className="site-logo" src={NavbarLogo} alt="logo" />
       <Box sx={{ my: 2 }}>
         <Typography
-          variant="h2"
+          variant="h3"
           component="h1"
           sx={{ fontFamily: "Gilroy extra bold" }}
         >
@@ -33,24 +33,13 @@ function Site2() {
           Some Navbars I designed recently.
         </Typography>
       </Box>
-      <Box sx={{ my: 2, display: "flex", justifyContent: "center" }}>
+      <Box
+        className="site-box"
+        sx={{ my: 2, display: "flex", justifyContent: "center" }}
+      >
         <Box
+          className="site-content-box"
           onClick={() => downloadTextFile("arrow-navbar.txt")}
-          sx={{
-            cursor: "pointer",
-            m: 2,
-            p: 2,
-            color: "black",
-            textDecoration: "none",
-            borderRadius: "50px",
-            backgroundColor: "#E0DDCF",
-            boxShadow:
-              "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            maxWidth: "30%",
-          }}
         >
           <ArrowAppBar />
           <Divider sx={{ width: "100%", marginTop: "1rem" }} />
@@ -59,22 +48,8 @@ function Site2() {
           </Typography>
         </Box>
         <Box
+          className="site-content-box"
           onClick={() => downloadTextFile("responsive-navbar.txt")}
-          sx={{
-            cursor: "pointer",
-            m: 2,
-            p: 2,
-            color: "black",
-            textDecoration: "none",
-            borderRadius: "50px",
-            backgroundColor: "#E0DDCF",
-            boxShadow:
-              "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            maxWidth: "30%",
-          }}
         >
           <ResponsiveAppBar />
           <Divider sx={{ width: "100%", marginTop: "1rem" }} />
