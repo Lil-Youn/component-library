@@ -1,0 +1,116 @@
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { AppBar, Box, Container, IconButton, Toolbar } from "@mui/material";
+import { useEffect, useState } from "react";
+
+const pages = ["home", "site1", "site2", "site3"];
+
+function ArrowAppBar() {
+  const [currentSection, setCurrentSection] = useState(0);
+
+  const scrollToSection = (index: number) => {
+    if (index >= 0 && index < pages.length) {
+      setCurrentSection(index);
+      const section = document.getElementById(pages[index]);
+      if (section) {
+        const scrollTop = section.offsetTop;
+        window.scrollTo({ top: scrollTop, behavior: "smooth" });
+      }
+    }
+  };
+
+  const handlePrevSection = () => {
+    if (currentSection > 0) {
+      scrollToSection(currentSection - 1);
+    }
+  };
+
+  const handleNextSection = () => {
+    if (currentSection < pages.length - 1) {
+      scrollToSection(currentSection + 1);
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      for (let i = 0; i < pages.length; i++) {
+        const section = document.getElementById(pages[i]);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+            setCurrentSection(i);
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "transparent",
+        boxShadow: "none",
+        borderRadius: 0,
+        position: "fixed",
+        zIndex: 9999,
+        top: 0,
+        right: 0,
+        height: "5rem",
+        width: "100%",
+        marginBottom: "1rem",
+        fontFamily: "Gilroy light",
+      }}
+    >
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <IconButton
+              size="large"
+              color="inherit"
+              onClick={handlePrevSection}
+              sx={{
+                animation: "pulsate 2s infinite",
+                backgroundColor: "#deb841", // Set the background color for the circle
+                borderRadius: "50%", // Make it a circle
+                padding: "12px", // Adjust the size of the circle
+                boxShadow: "2px  4px 8px #000",
+              }}
+            >
+              <ArrowBackIcon style={{ color: "#000" }} />
+            </IconButton>
+
+            <IconButton
+              size="large"
+              color="inherit"
+              onClick={handleNextSection}
+              sx={{
+                animation: "pulsate 2s infinite",
+                backgroundColor: "#deb841", // Set the background color for the circle
+                borderRadius: "50%", // Make it a circle
+                padding: "12px", // Adjust the size of the circle
+                boxShadow: "2px  4px 8px #000",
+              }}
+            >
+              <ArrowForwardIcon style={{ color: "#000" }} />
+            </IconButton>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+}
+
+export default ArrowAppBar;
