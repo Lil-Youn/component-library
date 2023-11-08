@@ -18,10 +18,10 @@ function Site5() {
   };
   return (
     <Container>
-      <img src={MenuLogo} alt="logo" style={{ width: "25rem" }} />
+      <img className="site-logo" src={MenuLogo} alt="logo" />
       <Box sx={{ my: 2 }}>
         <Typography
-          variant="h2"
+          variant="h3"
           component="h1"
           sx={{ fontFamily: "Gilroy extra bold" }}
         >
@@ -31,24 +31,13 @@ function Site5() {
           Some Menus i designed recently.
         </Typography>
       </Box>
-      <Box sx={{ my: 2, display: "flex", justifyContent: "center" }}>
+      <Box
+        className="site-box"
+        sx={{ my: 2, display: "flex", justifyContent: "center" }}
+      >
         <Box
+          className="site-content-box"
           onClick={() => downloadTextFile("speed-dial.txt")}
-          sx={{
-            cursor: "pointer",
-            m: 2,
-            p: 2,
-            color: "black",
-            textDecoration: "none",
-            borderRadius: "50px",
-            backgroundColor: "#E0DDCF",
-            boxShadow:
-              "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            width: "15%",
-          }}
         >
           <BasicSpeedDial />
           <Divider sx={{ width: "100%", marginTop: "1rem" }} />
