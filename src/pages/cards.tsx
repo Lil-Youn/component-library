@@ -1,9 +1,11 @@
 import { Container, Box, Typography } from "@mui/material";
 import CardLogo from "../assets/logo svgs/cards.svg";
+import CloseButton from "../components/buttons/close button/close-button";
 
 function Site3() {
   return (
     <Container>
+      <CloseButton style={{ position: "fixed", top: "10px", right: "10px" }} />
       <img className="site-logo" src={CardLogo} alt="logo" />
       <Box sx={{ my: 2 }}>
         <Typography
