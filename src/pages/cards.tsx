@@ -5,7 +5,14 @@ import CloseButton from "../components/buttons/close button/close-button";
 function Site3() {
   return (
     <Container>
-      <CloseButton style={{ position: "fixed", top: "10px", right: "10px" }} />
+      <CloseButton
+        style={{
+          position: "fixed",
+          top: "10px",
+          right: "10px",
+          backgroundColor: "orange",
+        }}
+      />
       <img className="site-logo" src={CardLogo} alt="logo" />
       <Box sx={{ my: 2 }}>
         <Typography
