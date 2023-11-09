@@ -50,6 +50,7 @@ h1 {
 
 .site-content-box {
   cursor: pointer;
+  height: fit-content;
   margin: 1rem;
   padding: 2rem;
   color: black;
