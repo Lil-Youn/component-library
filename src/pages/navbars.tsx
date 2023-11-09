@@ -2,6 +2,7 @@ import { Container, Box, Typography, Divider } from "@mui/material";
 import NavbarLogo from "../assets/logo svgs/navbars.svg";
 import ArrowAppBar from "../components/navbars/arrow-navbar";
 import ResponsiveAppBar from "../components/navbars/responsive-navbar";
+import CloseButton from "../components/buttons/close button/close-button";
 
 function Site2() {
   const downloadTextFile = (fileName: string) => {
@@ -20,6 +21,7 @@ function Site2() {
 
   return (
     <Container>
+      <CloseButton style={{ position: "fixed", top: "10px", right: "10px" }} />
       <img className="site-logo" src={NavbarLogo} alt="logo" />
       <Box sx={{ my: 2 }}>
         <Typography
