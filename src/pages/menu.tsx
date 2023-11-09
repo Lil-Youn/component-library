@@ -1,6 +1,7 @@
 import { Box, Container, Divider, Typography } from "@mui/material";
 import MenuLogo from "../assets/logo svgs/menu.svg";
 import BasicSpeedDial from "../components/menus/speed dial/speed-dial";
+import CloseButton from "../components/buttons/close button/close-button";
 
 function Site5() {
   const downloadTextFile = (fileName: string) => {
@@ -18,6 +19,7 @@ function Site5() {
   };
   return (
     <Container>
+      <CloseButton style={{ position: "fixed", top: "10px", right: "10px" }} />
       <img className="site-logo" src={MenuLogo} alt="logo" />
       <Box sx={{ my: 2 }}>
         <Typography
