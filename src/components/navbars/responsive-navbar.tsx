@@ -49,19 +49,30 @@ function ResponsiveAppBar() {
         fontFamily: "Gilroy light",
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="xs">
         <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: {
+                xs: "flex",
+                md: "none",
+              },
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page.name}
                 component="a"
                 href={`#${page.link}`}
                 sx={{
+                  marginLeft: "-1rem",
                   background: "transparent",
                   fontFamily: "Gilroy light",
+                  fontSize: "0.5rem",
                   fontWeight: 700,
-                  letterSpacing: ".3rem",
+
+                  letterSpacing: ".2rem",
                   textDecoration: "none",
                   color: "#6D6A75",
                   "&:click": {
