@@ -1,10 +1,11 @@
 import { Box, Container, Divider, Typography } from "@mui/material";
 import ButtonLogo from "../assets/logo svgs/button.svg";
 import CloseButton from "../components/buttons/close button/close-button";
+import TransformButton from "../components/buttons/transform button/transform-button";
 
 function Site1() {
   const downloadTextFile = (fileName: string) => {
-    fetch(`src/components/buttons/close button/${fileName}`)
+    fetch(`src/components/buttons/${fileName}`)
       .then((response) => response.text())
       .then((text) => {
         const blob = new Blob([text], { type: "text/plain" });
@@ -53,6 +54,16 @@ function Site1() {
           <Divider sx={{ width: "100%", marginTop: "1rem" }} />
           <Typography variant="h5" sx={{ fontFamily: "Gilroy light" }}>
             Small "X" close button
+          </Typography>
+        </Box>
+        <Box
+          className="site-content-box"
+          onClick={() => downloadTextFile("transform-button.txt")}
+        >
+          <TransformButton />
+          <Divider sx={{ width: "100%", marginTop: "1rem" }} />
+          <Typography variant="h5" sx={{ fontFamily: "Gilroy light" }}>
+            Clean Button with onHover transform
           </Typography>
         </Box>
       </Box>
