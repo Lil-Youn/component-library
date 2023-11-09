@@ -53,7 +53,12 @@ function Site2() {
         >
           <ResponsiveAppBar />
           <Divider sx={{ width: "100%", marginTop: "1rem" }} />
-          <Typography variant="h5" sx={{ fontFamily: "Gilroy light" }}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontFamily: "Gilroy light",
+            }}
+          >
             Clean Navigation Bar / Responsive
           </Typography>
         </Box>
