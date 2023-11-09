@@ -1,5 +1,6 @@
-import { Box, Container, Typography } from "@mui/material";
-import "../App.css";
+import { Box, Container, Typography, Dialog, IconButton } from "@mui/material";
+import InfoIcon from "@mui/icons-material/Info";
+import { useState } from "react";
 import ButtonLogo from "../assets/logo svgs/button.svg";
 import CardLogo from "../assets/logo svgs/cards.svg";
 import NavbarLogo from "../assets/logo svgs/navbars.svg";
@@ -9,9 +10,29 @@ import MenuLogo from "../assets/logo svgs/menu.svg";
 import { Link } from "react-router-dom";
 
 function Home() {
+  const [infoModalOpen, setInfoModalOpen] = useState(false);
+
+  const handleInfoButtonClick = () => {
+    setInfoModalOpen(true);
+  };
+
+  const handleCloseInfoModal = () => {
+    setInfoModalOpen(false);
+  };
+
   return (
     <Container>
+      <Box sx={{ my: 2, display: "flex", justifyContent: "flex-end" }}>
+        <IconButton
+          color="inherit"
+          onClick={handleInfoButtonClick}
+          sx={{ backgroundColor: "orange", borderRadius: "50%" }}
+        >
+          <InfoIcon />
+        </IconButton>
+      </Box>
       <img className="site-logo" src={LibraryLogo} alt="logo" />
+
       <Box sx={{ my: 2 }}>
         <Typography
           variant="h3"
@@ -59,6 +80,25 @@ function Home() {
           </Typography>
         </Box>
       </Box>
+      <Dialog open={infoModalOpen} onClose={handleCloseInfoModal}>
+        <Box p={2}>
+          <Typography
+            variant="h6"
+            sx={{ fontFamily: "Gilroy extra bold", marginBottom: "1rem" }}
+          >
+            How This Site Works
+          </Typography>
+          <Typography variant="body1" sx={{ fontFamily: "Gilroy light" }}>
+            Hi! Most of my components are made with React / Typescript and
+            Material UI. You can navigate through the components by clicking on
+            the boxes. You can download the code for the components as .txt file
+            by clicking on the component boxes inside the categories.
+            <br /> <br /> The code inside the .txt files is the original code,
+            the code that i used for the presentation inside the small boxes is
+            different to make it fit inside these boxes.
+          </Typography>
+        </Box>
+      </Dialog>
     </Container>
   );
 }
