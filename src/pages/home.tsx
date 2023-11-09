@@ -1,5 +1,4 @@
 import { Box, Container, Typography, Dialog, IconButton } from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
 import { useState } from "react";
 import ButtonLogo from "../assets/logo svgs/button.svg";
 import CardLogo from "../assets/logo svgs/cards.svg";
