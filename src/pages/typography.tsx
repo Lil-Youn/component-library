@@ -1,6 +1,7 @@
 import { Box, Container, Divider, Typography } from "@mui/material";
 import TypographyLogo from "../assets/logo svgs/text.svg";
 import ThreeDTypo from "../components/typography/3D-Typography/3d-typo";
+import CloseButton from "../components/buttons/close button/close-button";
 
 function Site4() {
   const downloadTextFile = (fileName: string) => {
@@ -18,6 +19,7 @@ function Site4() {
   };
   return (
     <Container>
+      <CloseButton style={{ position: "fixed", top: "10px", right: "10px" }} />
       <img className="site-logo" src={TypographyLogo} alt="logo" />
       <Box sx={{ my: 2 }}>
         <Typography
