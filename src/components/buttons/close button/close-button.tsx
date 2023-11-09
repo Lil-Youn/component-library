@@ -20,7 +20,7 @@ function CloseButton({ style }: CloseButtonProps) {
         "&:hover": {
           backgroundColor: "transparent",
         },
-        ...style, // Apply external styles
+        ...style,
       }}
     >
       <Close />
